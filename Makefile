@@ -27,7 +27,7 @@ clustertasks: ## Create Tekton Cluster Tasks
 .PHONY: build
 build: ## Build a Docker image
 	$(info Building Docker image...)
-	docker build --rm --pull --tag accounts:1.0 . 
+	docker build --rm --pull --tag accounts:1.0 .
 
 .PHONY: push
 push: ## Push image to K3d registry
@@ -68,5 +68,5 @@ db: ## Run PostgreSQL in Docker
 	docker run -d --name postgresql \
 		-p 5432:5432 \
 		-e POSTGRES_PASSWORD=postgres \
-		-v postgresql:/var/lib/postgresql/data \
+		-v postgresql:/var/lib/postgresql \
 		postgres:alpine
